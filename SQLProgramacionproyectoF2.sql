@@ -185,4 +185,5 @@ CREATE INDEX idx_factura_tipo_fecha ON Factura(tipo, fecha);
 CREATE INDEX idx_evento_animal_fecha ON EventoAnimal(fecha);
 GO
 
-PRINT '✅ Base de datos MiEmpresa creada correctamente con BitácoraAcceso incluida.';
+PRINT '✅ Base de datos brayan creada correctamente con BitácoraAcceso incluida.';
+
