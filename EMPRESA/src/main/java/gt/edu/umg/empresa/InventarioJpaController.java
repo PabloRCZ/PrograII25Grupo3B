@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gt.edu.umg.granja;
+package gt.edu.umg.empresa;
 
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import gt.edu.umg.granja.ENTITY.DetalleVenta;
+import gt.edu.umg.empresa.ENTITY.DetalleVenta;
 import java.util.ArrayList;
 import java.util.List;
-import gt.edu.umg.granja.ENTITY.DetalleCompra;
-import gt.edu.umg.granja.ENTITY.Inventario;
-import gt.edu.umg.granja.exceptions.NonexistentEntityException;
+import gt.edu.umg.empresa.ENTITY.DetalleCompra;
+import gt.edu.umg.empresa.ENTITY.Inventario;
+import gt.edu.umg.empresa.exceptions.NonexistentEntityException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
