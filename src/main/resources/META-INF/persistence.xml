@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="gt.edu.umg_CRUD_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>gt.edu.umg.crud.test.EventoAnimal</class>
+    <class>gt.edu.umg.crud.test.BitacoraAcceso</class>
+    <class>gt.edu.umg.crud.test.DetalleVenta</class>
+    <class>gt.edu.umg.crud.test.Cliente</class>
+    <class>gt.edu.umg.crud.test.Proveedor</class>
+    <class>gt.edu.umg.crud.test.InventarioAnimales</class>
+    <class>gt.edu.umg.crud.test.Usuario</class>
+    <class>gt.edu.umg.crud.test.Factura</class>
+    <class>gt.edu.umg.crud.test.Compra</class>
+    <class>gt.edu.umg.crud.test.DetalleCompra</class>
+    <class>gt.edu.umg.crud.test.Inventario</class>
+    <class>gt.edu.umg.crud.test.Venta</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=Brayan;TrustServerCertificate=True; "/>
+      <property name="javax.persistence.jdbc.user" value="pablo"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+    </properties>
+  </persistence-unit>
+</persistence>
