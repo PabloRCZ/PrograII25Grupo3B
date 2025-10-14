@@ -36,27 +36,50 @@ public class GranjaManager {
     private EventoAnimalJpaController eventoAnimalCtrl;
     private BitacoraAccesoJpaController bitacoraCtrl;
     
-    public GranjaManager() {
-        // Inicializar EntityManagerFactory
-        emf = Persistence.createEntityManagerFactory("gt.edu.umg_Granja_jar_1.0-SNAPSHOTPU");
-        scanner = new Scanner(System.in);
-        
-        // Inicializar controladores
-        usuarioCtrl = new UsuarioJpaController(emf);
-        rolCtrl = new RolJpaController(emf);
-        clienteCtrl = new ClienteJpaController(emf);
-        proveedorCtrl = new ProveedorJpaController(emf);
-        inventarioCtrl = new InventarioJpaController(emf);
-        animalesCtrl = new InventarioAnimalesJpaController(emf);
-        ventaCtrl = new VentaJpaController(emf);
-        compraCtrl = new CompraJpaController(emf);
-        facturaCtrl = new FacturaJpaController(emf);
-        detalleVentaCtrl = new DetalleVentaJpaController(emf);
-        detalleCompraCtrl = new DetalleCompraJpaController(emf);
-        eventoAnimalCtrl = new EventoAnimalJpaController(emf);
-        bitacoraCtrl = new BitacoraAccesoJpaController(emf);
-    }
+// Agregar este constructor alternativo a la clase GranjaManager existente:
+
+public GranjaManager(EntityManagerFactory emf, Scanner scanner) {
+    // Constructor que acepta emf y scanner externos
+    this.emf = emf;
+    this.scanner = scanner;
     
+    // Inicializar controladores
+    usuarioCtrl = new UsuarioJpaController(emf);
+    rolCtrl = new RolJpaController(emf);
+    clienteCtrl = new ClienteJpaController(emf);
+    proveedorCtrl = new ProveedorJpaController(emf);
+    inventarioCtrl = new InventarioJpaController(emf);
+    animalesCtrl = new InventarioAnimalesJpaController(emf);
+    ventaCtrl = new VentaJpaController(emf);
+    compraCtrl = new CompraJpaController(emf);
+    facturaCtrl = new FacturaJpaController(emf);
+    detalleVentaCtrl = new DetalleVentaJpaController(emf);
+    detalleCompraCtrl = new DetalleCompraJpaController(emf);
+    eventoAnimalCtrl = new EventoAnimalJpaController(emf);
+    bitacoraCtrl = new BitacoraAccesoJpaController(emf);
+}
+
+// Modificar el método cerrar para NO cerrar scanner ni emf (serán manejados por Main):
+public void cerrar() {
+    // No cerrar recursos aquí, serán manejados externamente
+}
+
+// Mantener el constructor original y método main para compatibilidad:
+public GranjaManager() {
+    // Inicializar EntityManagerFactory
+    emf = Persistence.createEntityManagerFactory("gt.edu.umg_Granja_jar_1.0-SNAPSHOTPU");
+    scanner = new Scanner(System.in);
+    
+    // Inicializar controladores...
+    // (código existente)
+}
+
+// El método main original puede quedar como alternativa:
+public static void main(String[] args) {
+    // Este main es la versión SIN login (legacy)
+    GranjaManager manager = new GranjaManager();
+    manager.mostrarMenu();
+}
     // ==================== OPERACIONES DE USUARIO ====================
     
     public void crearUsuario() {
@@ -657,19 +680,5 @@ public class GranjaManager {
             case 2: listarAnimales(); break;
             case 3: registrarEventoAnimal(); break;
         }
-    }
-    
-    public void cerrar() {
-        if (emf != null && emf.isOpen()) {
-            emf.close();
-        }
-        if (scanner != null) {
-            scanner.close();
-        }
-    }
-    
-    public static void main(String[] args) {
-        GranjaManager manager = new GranjaManager();
-        manager.mostrarMenu();
     }
 }
